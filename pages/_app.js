@@ -1,10 +1,10 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 
-import Base from "../components/Base";
+import Layout from "../components/layout";
 
-export default ({ Component, pageProps }, state) => (
-  <MDXProvider components={{ wrapper: Base }}>
-    <Component {...pageProps} />
+export default ({ Component, ...props }, state) => (
+  <MDXProvider components={{ wrapper: Layout }}>
+    <Component {...props} />
   </MDXProvider>
 );

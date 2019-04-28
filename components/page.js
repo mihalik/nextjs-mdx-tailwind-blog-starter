@@ -1,13 +1,17 @@
 import React from "react";
 import NextSeo from "next-seo";
 
-import "./Base.css";
+import "./page.css";
+import Header from "./header";
+import Footer from "./footer";
 
 export default ({ children, meta }) => (
   <>
     <NextSeo config={meta} />
+    <Header />
     <div className="mx-auto max-w-md">
-      <div className="px-4 py-16 shadow rounded bg-white">{children}</div>
+      <div className="p-4 shadow rounded bg-white markdown">{children}</div>
     </div>
+    <Footer />
   </>
 );

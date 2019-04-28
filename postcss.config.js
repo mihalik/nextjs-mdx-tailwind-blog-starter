@@ -1,12 +1,13 @@
 const tailwind = require("tailwindcss")("./tailwind.config.js");
 const postcssEasyImport = require("postcss-easy-import");
 const autoprefixer = require("autoprefixer");
+const postcssNesting = require("postcss-nesting");
 const purgecss = require("@fullhuman/postcss-purgecss")({
-  content: ["./pages/**/*", "./components/**/*"],
+  content: ["./pages/**/*.{mdx,js}", "./components/**/*.{js,css}"],
 });
 const cssnano = require("cssnano");
 
-let plugins = [postcssEasyImport, tailwind, autoprefixer];
+let plugins = [postcssEasyImport, tailwind, postcssNesting, autoprefixer];
 
 // Don't purge or nano in dev mode because caching of output means newly
 // used selectors won't get added to the output.
